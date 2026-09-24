@@ -2,8 +2,7 @@ import { getSiteConfig } from "@/lib/content";
 import { Sidebar } from "@/components/Sidebar";
 
 /**
- * Two-column shell. `showSidebar` follows the page's `author_profile`
- * frontmatter, defaulting to on.
+ * Two-column shell: author sidebar on the left, section content on the right.
  */
 export function Shell({
   showSidebar,

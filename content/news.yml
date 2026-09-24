@@ -1,0 +1,34 @@
+# Recent News. Newest first -- the order here is the order shown.
+# Set `milestone: true` to highlight an entry.
+# `text` may contain inline HTML.
+heading: Recent News
+items:
+  - date: Mar 2026
+    text: Accepted a fully-funded Ph.D. offer in Environmental Data Science at the <strong>UES</strong>.
+    milestone: true
+  - date: Jan 2025
+    text: Urban canopy mapping paper accepted at <strong>ICCI '25</strong>.
+  - date: July 2024
+    text: >-
+      Microclimate temperature analysis paper accepted in <strong>Sustainable Cities and
+      Society</strong>.
+  - date: Apr 2024
+    text: >-
+      Urban Heat Island forecasting paper published in the <strong>Journal of Environmental
+      Informatics</strong>.
+  - date: Aug 2023
+    text: >-
+      Joined the <strong>Department of Urban Development</strong> as a <strong>Climate Data
+      Scientist</strong>.
+    milestone: true
+  - date: Jul 2023
+    text: >-
+      Book chapter accepted in the <strong>Handbook of Computational Sustainability</strong>
+      (Springer).
+  - date: Dec 2022
+    text: 'Graduated with an <strong>M.Sc. in Geospatial Analytics</strong> (CGPA: 4.0).'
+    milestone: true
+  - date: Aug 2021
+    text: >-
+      Joined the <strong>Institute of Earth Sciences</strong> as a <strong>Graduate Research
+      Assistant</strong>.

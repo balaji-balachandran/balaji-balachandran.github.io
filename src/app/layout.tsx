@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "katex/dist/katex.min.css";
 import "./globals.css";
+import "./sections.css";
 import { getSiteConfig } from "@/lib/content";
+import { SECTIONS } from "@/lib/sections";
 
 export function generateMetadata(): Metadata {
   const cfg = getSiteConfig();
@@ -37,11 +39,13 @@ export default function RootLayout({
             <Link href="/" className="masthead__title">
               {cfg.author?.name ?? "Home"}
             </Link>
+            {/* Generated from SECTIONS so the nav always matches the page. */}
             <nav className="masthead__nav">
-              <a href="#biography">Biography</a>
-              <a href="#publications">Publications</a>
-              <a href="#teaching">Teaching</a>
-              <a href="#portfolio">Portfolio</a>
+              {SECTIONS.map(({ id, label }) => (
+                <a key={id} href={`#${id}`}>
+                  {label}
+                </a>
+              ))}
             </nav>
           </div>
         </header>

@@ -50,6 +50,7 @@ function readDir(dir: string): string[] {
     .filter((f) => !f.startsWith("."));
 }
 
+/** All entries in a collection, newest first. */
 export function getCollection(name: CollectionName): Doc[] {
   const dir = DIRS[name];
   const docs = readDir(dir).map((file) => {
@@ -58,8 +59,8 @@ export function getCollection(name: CollectionName): Doc[] {
     return {
       ...(data as Omit<Doc, "slug" | "body" | "sourceFile">),
       title: String(data.title ?? slugFromFilename(file)),
-      // Dates arrive from YAML as Date objects; normalise to ISO strings so
-      // they survive the server -> client boundary.
+      // YAML gives Date objects; normalise to ISO strings so they survive the
+      // server -> client boundary.
       date: data.date ? new Date(data.date).toISOString() : undefined,
       slug: slugFromFilename(file),
       body: content,
@@ -73,35 +74,12 @@ export function getCollection(name: CollectionName): Doc[] {
   for (const d of docs) {
     const clash = seen.get(d.slug);
     if (clash) {
-      console.warn(
-        `[content] duplicate slug "${d.slug}": ${clash} vs ${d.sourceFile}`,
-      );
+      console.warn(`[content] duplicate slug "${d.slug}": ${clash} vs ${d.sourceFile}`);
     }
     seen.set(d.slug, d.sourceFile);
   }
 
   return docs.sort((a, b) => (a.date && b.date ? (a.date < b.date ? 1 : -1) : 0));
-}
-
-export function getDoc(name: CollectionName, slug: string): Doc | undefined {
-  return getCollection(name).find((d) => d.slug === slug);
-}
-
-/** A single page out of content/pages, addressed by filename (e.g. "about"). */
-export function getPage(nameNoExt: string): Doc | undefined {
-  for (const ext of [".md", ".markdown", ".html"]) {
-    const full = path.join(CONTENT_ROOT, "pages", nameNoExt + ext);
-    if (!fs.existsSync(full)) continue;
-    const { data, content } = matter(fs.readFileSync(full, "utf8"));
-    return {
-      ...(data as Omit<Doc, "slug" | "body" | "sourceFile">),
-      title: String(data.title ?? nameNoExt),
-      slug: nameNoExt,
-      body: content,
-      sourceFile: path.join("pages", nameNoExt + ext),
-    } as Doc;
-  }
-  return undefined;
 }
 
 export interface SiteConfig {
@@ -130,15 +108,4 @@ export function getSiteConfig(): SiteConfig {
   const full = path.join(CONTENT_ROOT, "config.yml");
   if (!fs.existsSync(full)) return {};
   return (yaml.load(fs.readFileSync(full, "utf8")) ?? {}) as SiteConfig;
-}
-
-/**
- * Whether a page shows the author sidebar. Mirrors the original theme: on by
- * default, and a page can opt out with `author_profile: false` in frontmatter.
- */
-export function showsAuthorProfile(pageFile?: string): boolean {
-  if (!pageFile) return true;
-  const page = getPage(pageFile);
-  const v = (page as unknown as { author_profile?: boolean })?.author_profile;
-  return v ?? true;
 }

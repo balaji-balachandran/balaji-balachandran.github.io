@@ -1,0 +1,25 @@
+# Biography section. Paragraphs may contain inline HTML (<strong>, <em>, <a>).
+# `note` is the highlighted callout box; `icon` is any Font Awesome class.
+heading: Biography
+paragraphs:
+  - >-
+    <strong>John Doe</strong> is a fully funded Ph.D. researcher in Environmental Data Science at
+    the <strong>University of Earth Sciences</strong>, advised by <strong>Dr. Jane Smith</strong> in
+    the <strong>Climate Analytics Lab</strong>. His research applies Machine Learning and
+    Spatial-Temporal Neural Networks to predictive climate modeling. Currently, he develops deep
+    learning architectures to build AI-driven urban planning tools for <strong>Urban Heat Island
+    (UHI) mitigation</strong>. Through multi-institutional collaborations, his work aims to
+    translate environmental algorithms into scalable solutions for municipal governments and
+    sustainability NGOs.
+  - >-
+    Doe’s multidisciplinary foundation includes an M.Sc. in Geospatial Analytics, and a B.Sc. in
+    Environmental Engineering. He is an inductee of the <strong>Global Sustainability Honor
+    Society</strong> and recipient of the <strong>Green Earth Memorial Award</strong>. His research
+    addressing real-world climate challenges is widely published in peer-reviewed venues indexed
+    across <strong>IEEE Xplore</strong>, the <strong>ACM Digital Library</strong>, and
+    <strong>Springer</strong>.
+note:
+  icon: fas fa-bullhorn
+  text: >-
+    I am actively seeking collaborative research opportunities to contribute to environmental
+    science.

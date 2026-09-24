@@ -169,6 +169,12 @@ body {
 /* Stack the sidebar above the content on narrow screens. */
 @media (max-width: 1024px) {
   .layout--sidebar { grid-template-columns: 1fr; gap: 0; }
+  /* The 90% narrowing only makes sense beside the sidebar; once the grid
+     collapses it would leave the content hanging off to the left. */
+  .layout--sidebar .layout__main {
+    width: 100%;
+    padding-right: 0;
+  }
   .sidebar-wrap {
     position: static;
     padding-bottom: 25px;
