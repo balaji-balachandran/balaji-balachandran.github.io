@@ -8,25 +8,24 @@
     "start": "next start -p 3000"
   },
   "dependencies": {
+    "js-yaml": "^4.1.0",
+    "katex": "^0.16.11",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "gray-matter": "^4.0.3",
-    "unified": "^11.0.5",
-    "remark-parse": "^11.0.0",
+    "rehype-katex": "^7.0.1",
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.1",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
+    "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.1",
-    "rehype-raw": "^7.0.0",
-    "rehype-katex": "^7.0.1",
-    "rehype-stringify": "^10.0.1",
-    "js-yaml": "^4.1.0",
-    "katex": "^0.16.11"
+    "unified": "^11.0.5"
   },
   "devDependencies": {
-    "typescript": "^5.7.2",
+    "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
-    "@types/js-yaml": "^4.0.9"
+    "typescript": "^5.7.2"
   }
 }

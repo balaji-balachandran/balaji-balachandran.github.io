@@ -55,7 +55,7 @@ export default function RootLayout({
         <footer className="footer">
           <div className="wrap">
             <p>
-              &copy; {new Date().getFullYear()} {cfg.author?.name ?? cfg.title}
+              Heavily Inspired by <a href="https://minimalacademicsite.github.io/">minimalacademicsite.github.io</a>. &copy; {new Date().getFullYear()} {cfg.author?.name ?? cfg.title}
             </p>
           </div>
         </footer>

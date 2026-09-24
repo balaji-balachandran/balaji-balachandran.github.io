@@ -1,15 +1,17 @@
-import { getCollection } from "@/lib/content";
+import { getItems } from "@/lib/data";
 import { Section } from "./Section";
 import { Entry } from "./Entry";
 
-/** Add or edit files in content/portfolio/. */
+/** Edit content/portfolio.yml. */
 export async function Portfolio() {
-  const docs = getCollection("portfolio");
-  if (docs.length === 0) return null;
+  const items = getItems("portfolio");
+  if (items.length === 0) return null;
 
   return (
     <Section id="portfolio" heading="Portfolio">
-      {await Promise.all(docs.map((doc) => <Entry key={doc.slug} doc={doc} />))}
+      {await Promise.all(
+        items.map((item, i) => <Entry key={`${item.title}-${i}`} item={item} />),
+      )}
     </Section>
   );
 }

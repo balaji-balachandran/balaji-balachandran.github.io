@@ -1,15 +1,17 @@
-import { getCollection } from "@/lib/content";
+import { getItems } from "@/lib/data";
 import { Section } from "./Section";
 import { Entry } from "./Entry";
 
-/** Add or edit files in content/teaching/. */
+/** Edit content/teaching.yml. */
 export async function Teaching() {
-  const docs = getCollection("teaching");
-  if (docs.length === 0) return null;
+  const items = getItems("teaching");
+  if (items.length === 0) return null;
 
   return (
     <Section id="teaching" heading="Teaching">
-      {await Promise.all(docs.map((doc) => <Entry key={doc.slug} doc={doc} />))}
+      {await Promise.all(
+        items.map((item, i) => <Entry key={`${item.title}-${i}`} item={item} />),
+      )}
     </Section>
   );
 }

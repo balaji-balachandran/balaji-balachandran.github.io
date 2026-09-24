@@ -1,24 +1,24 @@
-import { Doc } from "@/lib/content";
+import { Item } from "@/lib/data";
 import { formatDate, renderMarkdown } from "@/lib/markdown";
 
-/** One item in a collection-backed section (publication, course, project). */
-export async function Entry({ doc }: { doc: Doc }) {
+/** One item in a list-backed section (publication, course, project). */
+export async function Entry({ item }: { item: Item }) {
   const links = [
-    doc.paperurl && { label: "Paper", href: doc.paperurl },
-    doc.slidesurl && { label: "Slides", href: doc.slidesurl },
-    doc.bibtexurl && { label: "BibTeX", href: doc.bibtexurl },
+    item.paper && { label: "Paper", href: item.paper },
+    item.slides && { label: "Slides", href: item.slides },
+    item.bibtex && { label: "BibTeX", href: item.bibtex },
   ].filter(Boolean) as { label: string; href: string }[];
 
-  // Prefer the file body (markdown, may contain math); fall back to excerpt.
-  const body = doc.body.trim()
-    ? await renderMarkdown(doc.body)
-    : doc.excerpt ?? "";
+  // `description` wins; `summary` is the fallback.
+  const body = item.description
+    ? await renderMarkdown(item.description)
+    : (item.summary ?? "");
 
   return (
     <article className="entry">
-      <h3 className="entry__title">{doc.title}</h3>
+      <h3 className="entry__title">{item.title}</h3>
       <p className="meta">
-        {[doc.type, doc.venue, doc.location, formatDate(doc.date)]
+        {[item.type, item.venue, item.location, formatDate(item.date)]
           .filter(Boolean)
           .join(" | ")}
       </p>
@@ -32,8 +32,8 @@ export async function Entry({ doc }: { doc: Doc }) {
           ))}
         </p>
       )}
-      {doc.citation && (
-        <p className="citation-inline" dangerouslySetInnerHTML={{ __html: doc.citation }} />
+      {item.citation && (
+        <p className="citation-inline" dangerouslySetInnerHTML={{ __html: item.citation }} />
       )}
     </article>
   );

@@ -1,0 +1,37 @@
+# Teaching experience, newest first.
+# Each entry renders as one item in the section.
+# `description` supports markdown, inline HTML and $$...$$ math.
+# `summary` is a shorter fallback, shown only when there is no description.
+items:
+  - title: Teaching experience 2
+    type: Workshop
+    date: "2015-01-01"
+    venue: University 1, Department
+    location: City, Country
+    description: |-
+      This is a description of a teaching experience. You can use markdown like any other post.
+
+      Heading 1
+      ======
+
+      Heading 2
+      ======
+
+      Heading 3
+      ======
+  - title: Teaching experience 1
+    type: Undergraduate course
+    date: "2014-01-01"
+    venue: University 1, Department
+    location: City, Country
+    description: |-
+      This is a description of a teaching experience. You can use markdown like any other post.
+
+      Heading 1
+      ======
+
+      Heading 2
+      ======
+
+      Heading 3
+      ======

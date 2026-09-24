@@ -20,7 +20,8 @@ unstyled or you see `Cannot find module './vendor-chunks/...'`, stop both,
 
 ## Editing content
 
-Everything editable lives in `content/`. No code changes needed.
+Everything editable lives in `content/`, one file per section. No code changes
+needed.
 
 ```
 content/
@@ -28,13 +29,13 @@ content/
 ├── biography.yml             Biography paragraphs + the callout box
 ├── research-interests.yml    the interest pills
 ├── news.yml                  the Recent News timeline
-├── publications/             one .md per publication
-├── teaching/                 one .md per teaching entry
-└── portfolio/                one .md or .html per portfolio item
+├── publications.yml          Publications
+├── teaching.yml              Teaching experience
+└── portfolio.yml             Portfolio items
 ```
 
-**The YAML files** are plain lists, newest first. Adding a news item means
-adding three lines:
+Every file is a plain list, newest first — the order in the file is the order
+on the page. Adding a news item is three lines:
 
 ```yaml
 items:
@@ -43,14 +44,25 @@ items:
     milestone: true      # optional, highlights the entry
 ```
 
-`text` and the biography paragraphs accept inline HTML (`<strong>`, `<em>`,
-`<a>`).
+Publications, teaching and portfolio share one shape. Every field is optional
+except `title`:
 
-**The collection folders** take markdown with YAML frontmatter. Recognised
-keys: `title`, `date`, `excerpt`, `venue`, `location`, `type`, `category`,
-`citation`, `paperurl`, `slidesurl`, `bibtexurl`. Sorted newest first by `date`.
-The file body renders below the heading; if it is empty, `excerpt` is used
-instead. Bodies support markdown, inline HTML and `$$...$$` math.
+```yaml
+items:
+  - title: Aspect-Based Sentiment Analysis of Amazon Product Reviews
+    date: "2025-01-01"          # used for sorting and display
+    venue: ICTCS 2025, Amman, Jordan
+    type: Undergraduate course  # teaching entries
+    location: City, Country
+    category: conferences
+    description: |-             # markdown, inline HTML and $$...$$ math
+      Longer text, rendered under the heading.
+    summary: One-liner          # shown only when description is absent
+    paper: https://doi.org/...  # renders a "Paper" button
+    slides: /files/slides1.pdf  # renders a "Slides" button
+    bibtex: /files/paper1.bib   # renders a "BibTeX" button
+    citation: Author, A. (2025). Title. Venue.
+```
 
 Images and PDFs are static files in `public/images/` and `public/files/`,
 referenced as `/images/foo.png` and `/files/bar.pdf`.
@@ -78,7 +90,7 @@ own data file. To add a new section: write the component, add it to the list.
 
 | File | Role |
 | --- | --- |
-| `src/lib/content.ts` | Reads `content/` — collections, pages and `config.yml` (YAML anchors supported) |
+| `src/lib/content.ts` | Reads `config.yml` (YAML anchors supported) |
 | `src/lib/markdown.ts` | remark/rehype pipeline: GFM, KaTeX math (`$$...$$`), raw HTML |
 | `src/lib/sections.tsx` | The ordered section registry driving the page and nav |
 | `src/lib/data.ts` | Typed readers for the YAML data files |
@@ -87,9 +99,6 @@ own data file. To add a new section: write the component, add it to the list.
 | `src/components/Shell.tsx` | Two-column grid; sidebar visibility per page |
 | `src/app/globals.css` | Page layout. Knobs are CSS variables at the top: `--x-large`, `--rail`, `--rail-gap` |
 | `src/app/sections.css` | Section styling: timeline, pills, callout box, section titles |
-
-Slugs come from filenames rather than any `permalink` frontmatter, so duplicate
-permalinks in source content can't make entries shadow each other.
 
 ## Known gaps
 

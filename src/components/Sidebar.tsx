@@ -15,8 +15,8 @@ export function Sidebar({ cfg }: { cfg: SiteConfig }) {
       href: `https://www.linkedin.com/in/${a.linkedin}`,
       icon: "fab fa-linkedin", cls: "linkedin-icon", title: "LinkedIn",
     },
-    (a as { orcid?: string }).orcid && {
-      href: `https://orcid.org/${(a as { orcid?: string }).orcid}`,
+    a.orcid && {
+      href: `https://orcid.org/${a.orcid}`,
       icon: "fab fa-orcid", cls: "orcid-icon", title: "ORCID",
     },
   ].filter(Boolean) as { href: string; icon: string; cls: string; title: string }[];
