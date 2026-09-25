@@ -3,6 +3,8 @@ import { SiteConfig } from "@/lib/content";
 /** Author profile panel shown alongside the page content. */
 export function Sidebar({ cfg }: { cfg: SiteConfig }) {
   const a = cfg.author ?? {};
+  // Empty or absent in config.yml means the Affiliations block is hidden.
+  const affiliations = cfg.affiliations ?? [];
 
   const socials = [
     a.email && { href: `mailto:${a.email}`, icon: "fas fa-envelope", cls: "email-icon", title: "Email" },
@@ -50,15 +52,32 @@ export function Sidebar({ cfg }: { cfg: SiteConfig }) {
         </div>
       )}
 
-      <div className="author__section">
-        <div className="sidebar-section-title">Affiliations</div>
-        <div className="affil-grid">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/university-placeholder.png" alt="University" className="affil-logo hover-lift" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/lab-placeholder.png" alt="Lab" className="affil-logo hover-lift" />
+      {affiliations.length > 0 && (
+        <div className="author__section">
+          <div className="sidebar-section-title">Affiliations</div>
+          <div className="affil-grid">
+            {affiliations.map((af) => {
+              /* eslint-disable-next-line @next/next/no-img-element */
+              const logo = (
+                <img
+                  src={`/images/${af.logo}`}
+                  alt={af.name}
+                  className="affil-logo hover-lift"
+                />
+              );
+              return af.url ? (
+                <a key={af.name} href={af.url} target="_blank" rel="noreferrer" title={af.name}>
+                  {logo}
+                </a>
+              ) : (
+                <span key={af.name} title={af.name}>
+                  {logo}
+                </span>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="author__cv">
         <a href="/files/John_Doe_CV.pdf" target="_blank" rel="noreferrer" className="cv-button">

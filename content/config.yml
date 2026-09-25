@@ -19,25 +19,34 @@ repository               : "minimalacademicsite/minimalacademicsite.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
-#               Additional customization can be done by editing /_includes/author-profile.html
+#               Additional customization can be done by editing src/components/Sidebar.tsx
+# Sidebar "Affiliations" logos. Commented out, so the block is hidden.
+# Uncomment and point `logo` at a file in public/images/ to show it.
+# affiliations:
+#   - name: University of Earth Sciences
+#     logo: university-placeholder.png
+#     url: https://example.edu
+#   - name: Climate Analytics Lab
+#     logo: lab-placeholder.png
+
 author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Balaji Balachandran"
-  description      : "Masters Student at Stanford University"
+  description      : "MSCS @ Stanford"
   pronouns         : ""
-  bio              : "I am a researcher focusing on machine learning and data science."
-  location         : "City, Country"
+  bio              : "Researcher studying security of networked systems"
+  location         : "Stanford, CA"
   employer         : "Institution Name"
   uri              : 
-  email            : "your.email@example.com" 
+  email            : "balajib@stanford.edu" 
 
   # Academic websites
   academia         : 
   arxiv            : 
-  googlescholar    : "your-google-scholar-id"
+  googlescholar    : "CpyhmsAAAAAJ"
   impactstory      : 
-  orcid            : "your-orcid-id"
+  orcid            : "0000-0002-7695-4498"
   semantic         : 
   pubmed           : 
   researchgate     : 
@@ -47,7 +56,7 @@ author:
   bitbucket        : 
   codepen          : 
   dribbble         : 
-  github           : "your-github-username"
+  github           : "balaji-balachandran"
   kaggle           : 
   stackoverflow    : 
 
@@ -62,7 +71,7 @@ author:
   keybase          : 
   instagram        : 
   lastfm           : 
-  linkedin         : "your-linkedin-username"
+  linkedin         : "balaji-balachandran-dev"
   mastodon         : 
   medium           : 
   pinterest        : 

@@ -9,7 +9,7 @@ export function Biography() {
 
   return (
     <Section id="biography" heading={heading} showHeading={false}>
-      <h1 className="page__title">{cfg.title ?? heading}</h1>
+      {/* <h1 className="page__title">Hello{cfg.title ?? heading}</h1> */}
 
       {paragraphs.map((html, i) => (
         <div key={i} className="content-text" dangerouslySetInnerHTML={{ __html: html }} />

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "katex/dist/katex.min.css";
-import "./globals.css";
-import "./sections.css";
+import "../globals.css";
+import "../sections.css";
 import { getSiteConfig } from "@/lib/content";
 import { SECTIONS } from "@/lib/sections";
 
@@ -17,7 +17,11 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function RootLayout({
+/**
+ * Root layout for the site itself. /playground has its own separate root
+ * layout, so nothing here (including the stylesheets above) reaches it.
+ */
+export default function SiteLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -55,7 +59,7 @@ export default function RootLayout({
         <footer className="footer">
           <div className="wrap">
             <p>
-              Heavily Inspired by <a href="https://minimalacademicsite.github.io/">minimalacademicsite.github.io</a>. &copy; {new Date().getFullYear()} {cfg.author?.name ?? cfg.title}
+              Borrowed heavily from <a href="https://minimalacademicsite.github.io/">minimalacademicsite.github.io</a>. &copy; {new Date().getFullYear()} {cfg.author?.name ?? cfg.title}
             </p>
           </div>
         </footer>

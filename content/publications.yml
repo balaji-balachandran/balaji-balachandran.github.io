@@ -4,10 +4,9 @@
 # `summary` is a shorter fallback, shown only when there is no description.
 items:
   - title: >-
-      Aspect-Based Sentiment Analysis of Amazon Product Reviews Using Machine Learning Models
-      and Hybrid Feature Engineering
-    date: "2025-01-01"
-    venue: 2025 International Conference on New Trends In Computing Sciences (ICTCS), Amman, Jordan
+      "Stop Trying to Make Fetch Happen": Towards a Modality-Aware Understanding of Unnecessary Resources on the Web
+    date: "2026-09-29"
+    venue: "IMC '25: Proceedings of the 2025 ACM Internet Measurement Conference"
     category: conferences
     description: >-
       [cite_start]This paper focuses on Natural Language Processing (NLP) techniques applied to

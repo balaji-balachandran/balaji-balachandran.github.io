@@ -3,7 +3,7 @@
 # `description` supports markdown, inline HTML and $$...$$ math.
 # `summary` is a shorter fallback, shown only when there is no description.
 items:
-  - title: Teaching experience 2
+  - title: "CS265: Randomized Algorithms and Probabilistic Analysis"
     type: Workshop
     date: "2015-01-01"
     venue: University 1, Department

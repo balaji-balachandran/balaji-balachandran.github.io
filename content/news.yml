@@ -3,11 +3,13 @@
 # `text` may contain inline HTML.
 heading: Recent News
 items:
-  - date: Mar 2026
-    text: Accepted a fully-funded Ph.D. offer in Environmental Data Science at the <strong>UES</strong>.
+  - date: Sep 2026
+    text: "Starting as a TA for <a href=\"https://web.stanford.edu/class/cs265/\">CS265: Randomized Algorithms and Probabilistic Analysis</a>"
+  - date: Aug 2026
+    text: '"Stop Trying to Make Fetch Happen" accepted to <a href="https://conferences.sigcomm.org/imc/2026/">IMC 2026</a>'
     milestone: true
-  - date: Jan 2025
-    text: Urban canopy mapping paper accepted at <strong>ICCI '25</strong>.
+  - date: Sep 2025
+    text: Joined the Empirical Security Research Group as a Research Assistant
   - date: July 2024
     text: >-
       Microclimate temperature analysis paper accepted in <strong>Sustainable Cities and
@@ -25,8 +27,8 @@ items:
     text: >-
       Book chapter accepted in the <strong>Handbook of Computational Sustainability</strong>
       (Springer).
-  - date: Dec 2022
-    text: 'Graduated with an <strong>M.Sc. in Geospatial Analytics</strong> (CGPA: 4.0).'
+  - date: May 2025
+    text: 'Graduated with an <strong>B.S in Geospatial Analytics</strong> (CGPA: 4.0).'
     milestone: true
   - date: Aug 2021
     text: >-
