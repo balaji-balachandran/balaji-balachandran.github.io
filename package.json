@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "node scripts/build-static.mjs",
-    "preview": "npx --yes serve out -l 3001"
+    "preview": "npx --yes serve out -l 3001",
+    "build:stanford": "node scripts/build-static.mjs --base /~balajib"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

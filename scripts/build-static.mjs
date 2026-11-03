@@ -9,6 +9,14 @@ import { rmSync, writeFileSync } from "node:fs";
 
 const DEV_PORT = 3000;
 
+// `--base /~balajib` builds for a subdirectory deployment; with no flag the
+// site is built for a domain root. Passed as a flag rather than an env var
+// because `VAR=x cmd` is not portable to the cmd.exe npm uses on Windows.
+const baseFlag = process.argv.indexOf("--base");
+if (baseFlag !== -1 && process.argv[baseFlag + 1]) {
+  process.env.DEPLOY_BASE_PATH = process.argv[baseFlag + 1];
+}
+
 async function devServerRunning() {
   try {
     await fetch(`http://localhost:${DEV_PORT}/`, {
