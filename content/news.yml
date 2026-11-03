@@ -1,36 +1,14 @@
 # Recent News. Newest first -- the order here is the order shown.
 # Set `milestone: true` to highlight an entry.
 # `text` may contain inline HTML.
+# Use <span class="semibold">...</span> for lighter emphasis than <strong>.
 heading: Recent News
 items:
   - date: Sep 2026
-    text: "Starting as a TA for <a href=\"https://web.stanford.edu/class/cs265/\">CS265: Randomized Algorithms and Probabilistic Analysis</a>"
+    text: "Starting as a teaching assistant for <a href=\"https://web.stanford.edu/class/cs265/\">CS265: Randomized Algorithms and Probabilistic Analysis</a>"
   - date: Aug 2026
-    text: '"Stop Trying to Make Fetch Happen" accepted to <a href="https://conferences.sigcomm.org/imc/2026/">IMC 2026</a>'
+    text: '<a href="#publications">"Stop Trying to Make Fetch Happen"</a> accepted to <span class="semibold"><a href="https://conferences.sigcomm.org/imc/2026/">IMC 2026</a></span>'
     milestone: true
-  - date: Sep 2025
-    text: Joined the Empirical Security Research Group as a Research Assistant
-  - date: July 2024
-    text: >-
-      Microclimate temperature analysis paper accepted in <strong>Sustainable Cities and
-      Society</strong>.
-  - date: Apr 2024
-    text: >-
-      Urban Heat Island forecasting paper published in the <strong>Journal of Environmental
-      Informatics</strong>.
-  - date: Aug 2023
-    text: >-
-      Joined the <strong>Department of Urban Development</strong> as a <strong>Climate Data
-      Scientist</strong>.
-    milestone: true
-  - date: Jul 2023
-    text: >-
-      Book chapter accepted in the <strong>Handbook of Computational Sustainability</strong>
-      (Springer).
   - date: May 2025
-    text: 'Graduated with an <strong>B.S in Geospatial Analytics</strong> (CGPA: 4.0).'
-    milestone: true
-  - date: Aug 2021
     text: >-
-      Joined the <strong>Institute of Earth Sciences</strong> as a <strong>Graduate Research
-      Assistant</strong>.
+      Graduated from UIUC with a B.S in Computer Science and as a bronze tablet scholar.

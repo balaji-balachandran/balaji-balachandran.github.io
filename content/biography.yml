@@ -4,14 +4,14 @@ heading: Biography
 paragraphs:
   - >-
     Hey! I'm a masters student at Stanford University specializing in computer and network security. I 
-    serve as research assistant for the <a href="https://esrg.stanford.edu/">Empirical Security Research 
-    Group</a>, where I'm advised by <a href="https://zakird.com/">Zakir Durumeric</a> and mentored by 
-    <a href="https://rumaisahabib.com/">Rumaisa Habib</a> and <a href="https://www.prstephens.com/">
-    Phillip Stephens</a>. Recently, I have been interested in <strong> internet measurement</strong> and enabling the
+    serve as research assistant for the <a href="https://esrg.stanford.edu/" target="_blank">Empirical Security Research 
+    Group</a>, where I'm advised by <a href="https://zakird.com/" target="_blank">Zakir Durumeric</a> and have been mentored by 
+    <a href="https://rumaisahabib.com/" target="_blank">Rumaisa Habib</a> and <a href="https://www.prstephens.com/" target="_blank">
+    Phillip Stephens</a>. Recently, I have been interested in <strong> internet measurement</strong> to enable more
     <strong>efficient use of the web</strong>. More broadly, my research interests center around deconstructing our assumptions of 
-    networked systems to improve performance and security. Previously, I completed my bachelor's degree at UIUC and graduated with 
-    highest honors. 
+    networked systems to improve performance and security. Previously, I completed my bachelor's degree in computer science at UIUC with a minor in mathematics and graduated with 
+    highest honors.
 note:
   icon: fas fa-bullhorn
   text: >-
-    I will be attending <a href="https://conferences.sigcomm.org/imc/2026/">IMC 2026</a> from 10/12-10/16, say hi!
+    I'm applying to PhD programs at the intersection of computer networking and security. Please feel free to <a href="mailto:balajib@stanford.edu">contact me</a> with any relevant opportunities!

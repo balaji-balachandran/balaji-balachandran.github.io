@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
-    "start": "next start -p 3000"
+    "build": "node scripts/build-static.mjs",
+    "preview": "npx --yes serve out -l 3001"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

@@ -126,3 +126,34 @@
     padding: 10px 12px;
   }
 }
+
+/* University name in the Teaching meta line. */
+.teaching__university {
+  color: #820000;
+  font-weight: 600;
+}
+
+/* Utility for content fields: lighter emphasis than <strong>.
+   Use in any YAML text field: <span class="semibold">IMC 2026</span> */
+.semibold {
+  font-weight: 600;
+}
+
+/* Experience ------------------------------------------------------------- */
+
+/* No colour of its own -- inherits the meta line's. Set `colors` on an entry
+   in YAML if a particular organization ever needs one. */
+.experience__org {
+  font-weight: 600;
+}
+
+.experience__details {
+  margin: 0 0 1.25rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.experience__details li {
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
+}

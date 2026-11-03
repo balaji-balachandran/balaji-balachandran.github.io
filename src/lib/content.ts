@@ -5,6 +5,17 @@ import yaml from "js-yaml";
 /** Content lives in this repo, under content/. */
 export const CONTENT_ROOT = path.join(process.cwd(), "content");
 
+/**
+ * The CV versions offered by the sidebar's Download CV button, in this order.
+ * Each is a path under public/. Leave one out to drop it from the menu.
+ */
+export interface CvVersions {
+  /** The condensed resume. */
+  onepage?: string;
+  /** The complete CV. */
+  full?: string;
+}
+
 /** A logo shown in the sidebar's Affiliations block. */
 export interface Affiliation {
   name: string;
@@ -28,6 +39,13 @@ export interface SiteConfig {
     github?: string;
     linkedin?: string;
     orcid?: string;
+    /**
+     * The CV, as a path under public/ (e.g. /files/one-page-resume.pdf), or
+     * as a map of versions to offer. With more than one version the Download
+     * CV button expands on click; with one it is a plain link. Omit to hide
+     * the button entirely.
+     */
+    cv?: string | CvVersions;
   };
   /** Omit or leave empty to hide the Affiliations block. */
   affiliations?: Affiliation[];

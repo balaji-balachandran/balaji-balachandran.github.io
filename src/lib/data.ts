@@ -42,11 +42,13 @@ export interface News {
 export const getNews = () =>
   load<News>("news.yml", { heading: "Recent News", items: [] });
 
-/* ---- content/publications.yml, teaching.yml, portfolio.yml ---- */
+/* ---- content/publications.yml, portfolio.yml ---- */
 
 /** One item in a list-backed section. */
 export interface Item {
   title: string;
+  /** Author names in order. The site author's own name is emphasised. */
+  authors?: string[];
   type?: string;
   date?: string;
   venue?: string;
@@ -60,11 +62,68 @@ export interface Item {
   slides?: string;
   bibtex?: string;
   citation?: string;
+  /** Bare DOI, e.g. 10.1145/3777912.3839788. Feeds the structured data. */
+  doi?: string;
 }
 
-export type ItemList = "publications" | "teaching" | "portfolio";
+export type ItemList = "publications" | "portfolio";
 
 export function getItems(list: ItemList): Item[] {
   const { items } = load<{ items?: Item[] }>(`${list}.yml`, {});
+  return items ?? [];
+}
+
+/* ---- content/teaching.yml ---- */
+
+/** Teaching entries are a simple three-field list. */
+export interface TeachingEntry {
+  classname: string;
+  role?: string;
+  university?: string;
+  /**
+   * Colours cycled across the words of `university`. One entry colours the
+   * whole name; two alternate; and so on. Omit to use the CSS default.
+   */
+  colors?: string[];
+  date?: string;
+}
+
+export function getTeaching(): TeachingEntry[] {
+  const { items } = load<{ items?: TeachingEntry[] }>("teaching.yml", {});
+  return items ?? [];
+}
+
+/* ---- content/experience.yml ---- */
+
+/** One job / research position. */
+export interface ExperienceEntry {
+  /** The position title, shown as the entry heading. */
+  role: string;
+  organization?: string;
+  /**
+   * Colours cycled across the words of `organization`. One colour paints the
+   * whole name; two alternate; and so on. Omit to use the CSS default.
+   */
+  colors?: string[];
+  location?: string;
+  date?: string;
+  /** Optional bullet points. Each accepts inline HTML. */
+  details?: string[];
+}
+
+export function getExperience(): ExperienceEntry[] {
+  const { items } = load<{ items?: ExperienceEntry[] }>("experience.yml", {});
+  return items ?? [];
+}
+
+/* ---- content/awards.yml ---- */
+
+export interface AwardEntry {
+  award: string;
+  date?: string;
+}
+
+export function getAwards(): AwardEntry[] {
+  const { items } = load<{ items?: AwardEntry[] }>("awards.yml", {});
   return items ?? [];
 }

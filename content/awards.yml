@@ -1,0 +1,13 @@
+# Awards and honours. The order here is the order shown.
+# Fields:
+#   award   the name of the award or honour
+#   date    free text, e.g. "May 2025"
+# Both fields accept inline HTML (<a>, <em>, <span class="semibold">).
+items:
+  - award: <a href="https://siebelschool.illinois.edu/about/awards/undergraduate-scholarships-awards/bronze-tablet-award" target="_blank">Bronze Tablet Scholar</a>
+    date: May 2025
+  - award: Dean's List
+    date: 2022-2025
+  - award: Treehacks hackathon <a href="https://devpost.com/software/communipute" target="_blank">winner</a> (3 Tracks)
+    date: 2023
+  - award: HackIllinois hackathon <a href="https://devpost.com/software/split-it-6njfkr" target="_blank"> winner </a>

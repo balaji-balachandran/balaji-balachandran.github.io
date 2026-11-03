@@ -11,11 +11,35 @@ locale                   : "en-US"
 site_theme               : "default"
 title                    : "Home"
 title_separator          : "-"
-name                     : &name "Your Name Here"
-description              : &description "Your Title / Role Here"
-url                      : "https://minimalacademicsite.github.io" 
+name                     : &name "Balaji Balachandran"
+description              : &description "Computer and network security researcher"
+url                      : "https://balaji-balachandran.github.io"
 baseurl                  : "" 
 repository               : "minimalacademicsite/minimalacademicsite.github.io"
+
+# Search engine metadata. Feeds the <title>, the meta description, the
+# link-preview card shown when the site is shared, and the structured data
+# (JSON-LD) that search engines read to understand who this page is about.
+seo:
+  # Shown as the clickable headline in search results. Aim for under ~60
+  # characters or Google truncates it.
+  title       : "Balaji Balachandran | Computer & Network Security"
+  # The grey text under the headline. Under ~155 characters.
+  description : >-
+    Balaji Balachandran is an MS computer science student at Stanford
+    researching computer and network security with the Empirical Security
+    Research Group.
+  # Image for the link-preview card, from public/images/.
+  image       : "balaji_in_amsterdam.jpg"
+  # Used in the structured data to describe the person.
+  jobTitle    : "Graduate Student Researcher"
+  affiliation : "Stanford University"
+  alumniOf    : "University of Illinois Urbana-Champaign"
+  knowsAbout:
+    - Computer security
+    - Network security
+    - Internet measurement
+    - Web privacy
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -31,13 +55,18 @@ repository               : "minimalacademicsite/minimalacademicsite.github.io"
 
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "balaji_in_amsterdam.jpg"
+  # Download CV button. One version renders as a plain link; uncomment the
+  # second and the button expands on click to offer both. Omit `cv` to hide it.
+  cv:
+    onepage        : "/files/one-page-resume.pdf"
+    full         : "/files/full-cv.pdf"
   name             : "Balaji Balachandran"
   description      : "MSCS @ Stanford"
   pronouns         : ""
   bio              : "Researcher studying security of networked systems"
   location         : "Stanford, CA"
-  employer         : "Institution Name"
+  employer         : "Stanford University"
   uri              : 
   email            : "balajib@stanford.edu" 
 

@@ -1,37 +1,26 @@
-# Teaching experience, newest first.
-# Each entry renders as one item in the section.
-# `description` supports markdown, inline HTML and $$...$$ math.
-# `summary` is a shorter fallback, shown only when there is no description.
+# Teaching experience. The order here is the order shown.
+# Fields (all but classname optional):
+#   classname   the course code and title
+#   role        e.g. Course Assistant, Instructor, TA
+#   university  the institution
+#   colors      colours cycled across the words of `university`.
+#               One colour paints the whole name; two alternate; and so on.
+#   date        free text, e.g. "Spring 2025" or "2025"
 items:
-  - title: "CS265: Randomized Algorithms and Probabilistic Analysis"
-    type: Workshop
-    date: "2015-01-01"
-    venue: University 1, Department
-    location: City, Country
-    description: |-
-      This is a description of a teaching experience. You can use markdown like any other post.
+  - classname: "CS265: Randomized Algorithms and Probabilistic Analysis"
+    role: Graduate Teaching Assistant
+    university: Stanford University
+    colors: ["#820000"]                 # Stanford Cardinal
+    date: "Autumn 2026"
 
-      Heading 1
-      ======
+  - classname: "CS361: Probability and Statistics for Computer Science"
+    role: Head Course Assistant
+    university: "University of Illinois: Urbana Champaign"
+    colors: [ "#1b3a6b"]      # Illinois blue / orange, alternating
+    date: "Spring 2024, Fall 2024, Spring 2025"
 
-      Heading 2
-      ======
-
-      Heading 3
-      ======
-  - title: Teaching experience 1
-    type: Undergraduate course
-    date: "2014-01-01"
-    venue: University 1, Department
-    location: City, Country
-    description: |-
-      This is a description of a teaching experience. You can use markdown like any other post.
-
-      Heading 1
-      ======
-
-      Heading 2
-      ======
-
-      Heading 3
-      ======
+  - classname: "CS374: Intro to Algorithms and Models of Computation"
+    role: Course Assistant
+    university: "University of Illinois: Urbana Champaign"
+    colors: ["#1b3a6b"]
+    date: "Spring 2025"

@@ -1,17 +1,36 @@
-import { getItems } from "@/lib/data";
+import { getTeaching } from "@/lib/data";
 import { Section } from "./Section";
-import { Entry } from "./Entry";
+import { ColoredName } from "./ColoredName";
+
+const SEP = " · ";
 
 /** Edit content/teaching.yml. */
-export async function Teaching() {
-  const items = getItems("teaching");
-  if (items.length === 0) return null;
+export function Teaching() {
+  const entries = getTeaching();
+  if (entries.length === 0) return null;
 
   return (
     <Section id="teaching" heading="Teaching">
-      {await Promise.all(
-        items.map((item, i) => <Entry key={`${item.title}-${i}`} item={item} />),
-      )}
+      {entries.map((e, i) => (
+        <article key={`${e.classname}-${i}`} className="entry">
+          <h3 className="entry__title">{e.classname}</h3>
+          {(e.role || e.university || e.date) && (
+            <p className="meta">
+              {e.role}
+              {e.role && e.university && SEP}
+              {e.university && (
+                <ColoredName
+                  name={e.university}
+                  colors={e.colors}
+                  className="teaching__university"
+                />
+              )}
+              {(e.role || e.university) && e.date && SEP}
+              {e.date}
+            </p>
+          )}
+        </article>
+      ))}
     </Section>
   );
 }

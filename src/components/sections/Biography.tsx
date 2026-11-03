@@ -9,7 +9,16 @@ export function Biography() {
 
   return (
     <Section id="biography" heading={heading} showHeading={false}>
-      {/* <h1 className="page__title">Hello{cfg.title ?? heading}</h1> */}
+      {/*
+        The page had no <h1> at all -- it started at <h2> -- which leaves
+        crawlers without a top-level subject for the document. This supplies
+        one without changing the design: .visually-hidden keeps it out of
+        sight but in the accessibility tree and the markup.
+      */}
+      <h1 className="visually-hidden">
+        {cfg.author?.name ?? heading}
+        {cfg.author?.description ? ` - ${cfg.author.description}` : ""}
+      </h1>
 
       {paragraphs.map((html, i) => (
         <div key={i} className="content-text" dangerouslySetInnerHTML={{ __html: html }} />

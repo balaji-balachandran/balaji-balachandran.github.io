@@ -1,0 +1,31 @@
+# Industry experience. The order here is the order shown.
+# Fields (all but role optional):
+#   role          the position title -- shown as the entry heading
+#   organization  the company, lab, or group
+#   colors        colours cycled across the words of `organization`.
+#                 One colour paints the whole name; two alternate; and so on.
+#   location      e.g. "Stanford, CA" or "Remote"
+#   date          free text, e.g. "Jun 2025 - Sep 2025" or "2024 - present"
+#   details       optional bullet points; each accepts inline HTML
+items:
+  - role: "System and Infrastructure Engineer Intern"
+    organization: "LinkedIn"
+    location: "Mountain View, CA"
+    date: "Jun 2026 - Sep 2026"
+    # details:
+    #   - Decoupled the failover validation logic from disaster recovery. This allowed me to create a declarative simulation testing framework to validate changes to our failover protocols. With that in place, I developed tunable, Kalman-filter based traffic validation to remove reliance on static thresholds to drive dynamic traffic.
+
+  - role: "Android Software Engineer Intern"
+    organization: "Fetch"
+    location: "Chicago, IL"
+    date: "May 2024 - Aug 2024"
+  
+  - role: "iOS Software Engineer Intern"
+    organization: "Synchrony"
+    location: "Champaign, IL"
+    date: "May 2023 - May 2024"
+
+  - role: "Autonomy Simulation Intern"
+    organization: "Brunswick Corporation"
+    location: "Champaign, IL"
+    date: "Jan 2023 - May 2023"

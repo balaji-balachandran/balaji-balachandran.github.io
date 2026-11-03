@@ -1,10 +1,23 @@
 import { SiteConfig } from "@/lib/content";
+import { asset } from "@/lib/base-path";
+import { CvButton, type CvOption } from "./CvButton";
 
 /** Author profile panel shown alongside the page content. */
 export function Sidebar({ cfg }: { cfg: SiteConfig }) {
   const a = cfg.author ?? {};
   // Empty or absent in config.yml means the Affiliations block is hidden.
   const affiliations = cfg.affiliations ?? [];
+
+  // `cv` is either a single path or a map of versions. One option renders as a
+  // plain link; two or more make the button expand on click.
+  const cv = a.cv;
+  const cvOptions: CvOption[] =
+    typeof cv === "string"
+      ? [{ label: "Download CV", href: asset(cv) }]
+      : ([
+          cv?.onepage && { label: "One page", href: asset(cv.onepage) },
+          cv?.full && { label: "Full CV", href: asset(cv.full) },
+        ].filter(Boolean) as CvOption[]);
 
   const socials = [
     a.email && { href: `mailto:${a.email}`, icon: "fas fa-envelope", cls: "email-icon", title: "Email" },
@@ -25,17 +38,19 @@ export function Sidebar({ cfg }: { cfg: SiteConfig }) {
 
   return (
     <aside className="sidebar-wrap">
-      <div className="author__avatar">
-        {/* Plain <img> keeps these as static files under public/images. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`/images/${a.avatar ?? "profile.png"}`}
-          alt={a.name ?? "Profile photo"}
-          width={240}
-          height={240}
-          className="hover-lift"
-        />
-      </div>
+      {a.avatar && (
+        <div className="author__avatar">
+          {/* Plain <img> keeps these as static files under public/images. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={asset(`/images/${a.avatar}`)}
+            alt={a.name ?? "Profile photo"}
+            width={240}
+            height={240}
+            className="hover-lift"
+          />
+        </div>
+      )}
 
       <div className="author__content">
         <h3>{a.name ?? "John Doe"}</h3>
@@ -60,7 +75,7 @@ export function Sidebar({ cfg }: { cfg: SiteConfig }) {
               /* eslint-disable-next-line @next/next/no-img-element */
               const logo = (
                 <img
-                  src={`/images/${af.logo}`}
+                  src={asset(`/images/${af.logo}`)}
                   alt={af.name}
                   className="affil-logo hover-lift"
                 />
@@ -79,16 +94,12 @@ export function Sidebar({ cfg }: { cfg: SiteConfig }) {
         </div>
       )}
 
-      <div className="author__cv">
-        <a href="/files/John_Doe_CV.pdf" target="_blank" rel="noreferrer" className="cv-button">
-          <i className="fas fa-file-pdf" /> Download CV
-        </a>
-      </div>
+      {cvOptions.length > 0 && (
+        <div className="author__cv">
+          <CvButton options={cvOptions} />
+        </div>
+      )}
 
-      <div className="author__credit">
-        Graphic Resources:{" "}
-        <a href="https://www.flaticon.com/" target="_blank" rel="noreferrer">Flaticon</a>
-      </div>
     </aside>
   );
 }
